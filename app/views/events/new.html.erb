@@ -1,0 +1,12 @@
+<%= if @event.errors
+    @event.errors.full_messages
+end %>
+<%= form_with model: @event do |form| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+    <%= form.submit %>
+<% end %>

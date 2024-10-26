@@ -18,6 +18,21 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Home", root_path %>
+      <%= unless current_user
+          link_to "Register", new_user_registration_path
+      end %>
+      <%= unless current_user
+            link_to "Sign in", new_user_session_path
+          end %>
+      <%= if current_user
+            link_to "New", new_event_path
+      end %>
+      <%= if current_user
+            link_to "My showpage", user_path(current_user.id)
+      end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
