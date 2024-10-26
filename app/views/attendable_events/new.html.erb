@@ -1,0 +1,8 @@
+<h1>Join Event</h1>
+
+<%= form_with model: @attendable_event, url: attendable_events_path, local: true do |form| %>
+  <%= form.hidden_field :attended_event, value: params[:event_id] %>
+  <%= form.hidden_field :attendee, value: current_user.id %>
+
+  <%= form.submit 'Join Event', class: 'btn btn-primary' %>
+<% end %>

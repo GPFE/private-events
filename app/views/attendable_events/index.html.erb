@@ -1,0 +1,13 @@
+<h1>Available Events</h1>
+
+<% Event.all.each do |event| %>
+  <div>
+    <h2><%= event.title %></h2>
+    <%= link_to 'Join Event', new_attendable_event_path(event_id: event.id) %>
+  </div>
+    <%= if current_user
+     current_user.attendable_events.include?(event.id)
+                "joined"
+    end %>
+  <hr>
+<% end %>

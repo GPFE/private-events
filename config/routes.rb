@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get "users/index"
-  get "users/:id", to: "users#show", as: 'user'
+  get "users/event/:id", to: "users#show", as: 'user'
   devise_for :users
   get "events/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root "events#index"
+  # root "events#index"
+  root "attendable_events#index"
   resources "events"
+  # resources "attandable_events", controller: "attendable_events", only: [:index, :new, :create]
+  resources :attendable_events, only: [:index, :new, :create], controller: :attendable_events
+
 end

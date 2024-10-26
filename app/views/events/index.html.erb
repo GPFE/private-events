@@ -1,4 +1,4 @@
 <h1>Events</h1>
-<% @events.each do |event| %>
+<% Event.all.each do |event| %>
     <%= link_to event.title, event %>
 <% end %>
